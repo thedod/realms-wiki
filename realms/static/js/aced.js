@@ -19,7 +19,7 @@ function Aced(settings) {
     editor: null,
     theme: 'idle_fingers',
     themePath: '/static/vendor/ace-builds/src',
-    mode: 'markdown',
+    mode: 'html',
     autoSave: true,
     autoSaveInterval: 5000,
     syncPreview: false,
