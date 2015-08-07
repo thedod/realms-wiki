@@ -53,7 +53,8 @@ marked.setOptions({
 var MDR = {
   meta: null,
   md: null,
-  sanitize: true, // Override
+  //sanitize: true, // Override
+  sanitize: false, // Be dangerous ;)
   parse: function(md){ return marked(md); },
   convert: function(md, sanitize) {
     if (this.sanitize !== null) {
@@ -62,7 +63,8 @@ var MDR = {
     this.md = md;
     this.processMeta();
     try {
-      var html = this.parse(this.md);
+      // var html = this.parse(this.md);
+      var html = this.md;
     } catch(e) {
       return this.md;
     }

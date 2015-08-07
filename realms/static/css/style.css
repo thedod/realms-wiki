@@ -184,6 +184,10 @@ a.label {
   border-left: #ddd 2px solid;
 }
 
+.entry-preview-content, #page-content {
+  direction: rtl; /* yaani levantini */
+}
+
 .entry-preview-content {
   position: absolute;
   top: 0;

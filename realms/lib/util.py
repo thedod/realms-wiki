@@ -104,7 +104,7 @@ def cname_to_filename(cname):
     :return: str -- Filename
 
     """
-    return cname + ".md"
+    return cname + ".html"
 
 
 def filename_to_cname(filename):

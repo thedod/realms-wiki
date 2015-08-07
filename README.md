@@ -1,3 +1,22 @@
+### `textuali` branch
+
+#### Diff from `master`
+
+* We edit html (not markdown)
+* Content/preview `direction` is `rtl` (source is `ltr`, because it's easier to edit html this way).
+* **No sanitation** (only trusted people should have accounts).
+* [Patch](https://github.com/scragg0x/realms-wiki/pull/70) to allow [any] user to create new users.
+  This lets us turn off registration (as soon as the *you* have registered :wink:), and we still
+  have a way to add users. There's no "admin class": *anyone* you add can add riff-raff and/or commit malware :wink:
+
+#### To do
+
+Document how to install an instance at the deployment env.
+
+---------------
+### Original README:
+
+
 # Realms Wiki Beta
 
 Git based wiki written in Python
