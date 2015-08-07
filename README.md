@@ -2,7 +2,7 @@
 
 #### Diff from `master`
 
-* We edit html (not markdown)
+* We edit html (page file extension is `.htm` and not `.md`)
 * Content/preview `direction` is `rtl` (source is `ltr`, because it's easier to edit html this way).
 * **No sanitation** (only trusted people should have accounts).
 * [Patch](https://github.com/scragg0x/realms-wiki/pull/70) to allow [any] user to create new users.
