@@ -73,7 +73,10 @@ var aced = new Aced({
       content: content
     };
 
-    var path = Config['RELATIVE_PATH'] + '/' + data['name'];
+    //var path = Config['RELATIVE_PATH'] + '/' + data['name'];
+    // Weird voodoo shit: for some reason the only realms-wiki.json config that works
+    // ends up with RELATIVE_PATH repeated twice (figure it out if you're obsessive)
+    var path = Config['RELATIVE_PATH'] + Config['RELATIVE_PATH'] + '/' + data['name'];
     var type = (Commit.info['sha']) ? "PUT" : "POST";
 
     $.ajax({
