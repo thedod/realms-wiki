@@ -151,6 +151,31 @@ def error_handler(e):
 
     return response, status_code
 
+# Based on http://flask.pocoo.org/snippets/35/
+class PrefixedApp(object):
+    '''Wrap the application in this middleware and declare at
+    realms-wiki.json something like
+        {"SCRIPT_NAME":"/myapp","HTTP_SCHEME":"https"}
+    if it's mounted on a subfolder of an SSL site
+    [e.g. a webaction "Custom (listening on port)" app]
+
+    :param app: the WSGI application
+    '''
+    def __init__(self, app):
+        self.app = app.wsgi_app
+        self.appconf = app.config
+
+    def __call__(self, environ, start_response):
+        script_name = self.appconf.get('SCRIPT_NAME', '')
+        if script_name:
+            environ['SCRIPT_NAME'] = script_name
+
+        scheme = self.appconf.get('HTTP_SCHEME', '')
+        if scheme:
+            environ['wsgi.url_scheme'] = scheme
+        return self.app(environ, start_response)
+
+
 
 def create_app(config=None):
     app = Application(__name__)
@@ -193,6 +218,7 @@ def create_app(config=None):
     with app.app_context():
         db.metadata.create_all(db.get_engine(app))
 
+    app.wsgi_app = PrefixedApp(app) ### url juggling [if needed]
     return app
 
 # Init plugins here if possible
