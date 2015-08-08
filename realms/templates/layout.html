@@ -119,7 +119,7 @@
     {% for bundle in g.assets['js'] %}
       {% assets bundle %}
         {% if bundle == 'editor.js' %}
-          <script type="text/javascript" data-ace-base="src" charset="utf-8" src="{{ ASSET_URL }}"></script>
+          <script type="text/javascript" data-ace-base="{{ config['RELATIVE_PATH'] }}/static/vendor/ace-builds/src" charset="utf-8" src="{{ ASSET_URL }}"></script>
         {% else %}
           <script type="text/javascript" src="{{ ASSET_URL }}"></script>
         {% endif %}
